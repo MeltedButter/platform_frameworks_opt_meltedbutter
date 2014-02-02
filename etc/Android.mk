@@ -1,4 +1,5 @@
-# Copyright (C) 2011 The Android Open Source Project
+#
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,21 +12,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
 LOCAL_PATH := $(call my-dir)
 
+########################
 include $(CLEAR_VARS)
 
-LOCAL_AIDL_INCLUDES := $(LOCAL_PATH)/src/java
-LOCAL_SRC_FILES := $(call all-java-files-under, src/java) \
-	$(call all-Iaidl-files-under, src/java) \
-	$(call all-logtags-files-under, src/java)
+LOCAL_MODULE := meltedbutter.xml
 
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := meltedbutter
+LOCAL_MODULE_CLASS := ETC
 
-include $(BUILD_JAVA_LIBRARY)
+# This will install the file in /system/etc/permissions
+#
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
 
-# Include subdirectory makefiles
-# ============================================================
-include $(call all-makefiles-under,$(LOCAL_PATH))
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+
+include $(BUILD_PREBUILT)
