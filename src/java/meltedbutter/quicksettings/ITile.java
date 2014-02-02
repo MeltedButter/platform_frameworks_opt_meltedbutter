@@ -7,5 +7,5 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public interface ITile {
-    public boolean construct(Context context, FrameLayout top, ImageView image, TextView text);
+    public void construct(Context context, ITileControls controls, FrameLayout top, ImageView image, TextView text);
 }

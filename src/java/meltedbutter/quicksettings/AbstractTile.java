@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 abstract class AbstractTile implements ITile, View.OnClickListener, View.OnLongClickListener {
     protected Context mContext;
+    protected ITileControls mControls;
     protected FrameLayout mTop;
     protected ImageView mImage;
     protected TextView mText;
 
     @Override
-    public boolean construct(Context context, FrameLayout top, ImageView image, TextView text) {
+    public void construct(Context context, ITileControls controls, FrameLayout top, ImageView image, TextView text) {
         mContext = context;
+        mControls = controls;
         mTop = top;
         mImage = image;
         mText = text;
@@ -25,17 +27,14 @@ abstract class AbstractTile implements ITile, View.OnClickListener, View.OnLongC
             top.setOnLongClickListener(this);
         }
 
-        return prepare();
+        prepare();
     }
     
     /**
      * Sub-classes should override these.
      */
 
-    /**
-     * @return Whether or not the tile should be shown
-     */
-    abstract protected boolean prepare();
+    abstract protected void prepare();
 
     public abstract void onClick(View view);
 
