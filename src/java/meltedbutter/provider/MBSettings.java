@@ -142,4 +142,9 @@ public class MBSettings {
      * @hide
      */
     public static final String PIE_CHEVRON_RIGHT = "pie_chevron_right";
+
+    /**
+     * @hide
+     */
+    public static final String EXPANDED_DESKTOP_STATE = "expanded_desktop_state";
 }
